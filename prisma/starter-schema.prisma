@@ -1,0 +1,141 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/.prisma/client"
+}
+
+// Copy the generated client folder into the @rs-tech-hub/nestjs-prisma module
+// -> src/lib/generated/client
+
+datasource db {
+  provider = "postgresql"
+}
+
+////////////////////////////////////////
+// Users & Accounts & AccountSubscription
+////////////////////////////////////////
+model RefreshToken {
+  id              String   @id @unique @default(cuid())
+  token           String   @unique
+  userId          String
+  User            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  revoked         Boolean  @default(false)
+  replacedByToken String?
+  expiresAt       DateTime
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model ActivationToken {
+  id            String    @id @unique @default(cuid())
+  userId        String
+  tokenHash     String    @unique
+  createdAt     DateTime  @default(now())
+  expiresAt     DateTime
+  usedAt        DateTime?
+  invalidatedAt DateTime?
+  User          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+enum UserStatus {
+  PENDING
+  ACTIVE
+  INACTIVE
+  DISABLED
+  DELETED
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+model User {
+  id               String            @unique @default(cuid())
+  Status           UserStatus        @default(PENDING)
+  Role             UserRole          @default(USER)
+  email            String            @unique
+  issuerId         String?           @unique
+  salt             String
+  hash             String
+  isVerified       Boolean           @default(false)
+  activatedAt      DateTime?
+  deactivatedAt    DateTime?
+  Account          Account           @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  accountId        String            @unique
+  Activity         UserActivity[]
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  Profile          Profile?
+  RefreshTokens    RefreshToken[]
+  ActivationTokens ActivationToken[]
+}
+
+enum ProfileSalutations {
+  MR
+  MRS
+  MS
+  DR
+  NONE
+}
+
+model Profile {
+  id          String              @unique @default(cuid())
+  avatarUrl   String?
+  Salutation  ProfileSalutations? @default(NONE)
+  firstName   String?
+  lastName    String?
+  dateOfBirth DateTime?
+  country     String?
+  User        User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String              @unique
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+}
+
+enum UserActivityType {
+  LOGIN
+  LOGOUT
+  REGISTER
+  ACTIVATE
+  DEACTIVATE
+  DISABLE
+  RESET_PASSWORD
+  REFRESH_TOKEN_REVOKED
+  REFRESH_TOKEN_EXPIRED
+  REFRESH_TOKEN_INVALID
+  ALL_TOKENS_REVOKED
+  UPDATE_PROFILE
+  UPDATE_PASSWORD
+  UPDATE_EMAIL
+  REQUEST_SUPPORT
+  DELETE
+}
+
+model UserActivity {
+  id        String           @unique @default(cuid())
+  Type      UserActivityType
+  User      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  createdAt DateTime         @default(now())
+}
+
+enum AccountType {
+  FREE
+  TEST
+}
+
+model Account {
+  id                 String      @unique @default(cuid())
+  name               String
+  primaryEmail       String      @unique()
+  Type               AccountType @default(FREE)
+  signupIpAdress     String?
+  isDemoContentReady Boolean     @default(false)
+  Users              User[]
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+}

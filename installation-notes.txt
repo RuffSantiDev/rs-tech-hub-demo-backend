@@ -1,0 +1,23 @@
+Installation notes:
+
+yarn add graphql @apollo/server
+
+yarn add @nestjs/common @nestjs/core reflect-metadata rxjs
+yarn add @nestjs/platform-express
+
+yarn add passport @nestjs/passport passport-jwt @nestjs/jwt passport-local bcrypt axios
+yarn add @as-integrations/express5
+yarn prisma:gen
+
+copy generated into node_modules/@rs-tech-hub/nestjs-prisma/src/lib/generated/client
+
+schema needs to be -js
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/.prisma/client"
+}
+
+ISSUES:
+- common-interceptors package needs to be re-published!!!
+- generated prisma client gets removed when new packages are added!!
+
