@@ -11,20 +11,20 @@ The docker-compose file provides you with a production ready postgres database t
 
 ## Included RS Tech Hub Modules
 
-@rs-tech-hub/nestjs-account-starter@latest
-@rs-tech-hub/nestjs-auth-core@latest
-@rs-tech-hub/nestjs-auth-starter@latest
-@rs-tech-hub/nestjs-clock@latest
-@rs-tech-hub/nestjs-common-interceptors@latest
-@rs-tech-hub/nestjs-prisma@latest
-@rs-tech-hub/nestjs-profile@latest
-@rs-tech-hub/nestjs-service-operation@latest
-@rs-tech-hub/nestjs-user@latest
-@rs-tech-hub/nestjs-test-starter@latest
+- @rs-tech-hub/nestjs-account-starter@latest
+- @rs-tech-hub/nestjs-auth-core@latest
+- @rs-tech-hub/nestjs-auth-starter@latest
+- @rs-tech-hub/nestjs-clock@latest
+- @rs-tech-hub/nestjs-common-interceptors@latest
+- @rs-tech-hub/nestjs-prisma@latest
+- @rs-tech-hub/nestjs-profile@latest
+- @rs-tech-hub/nestjs-service-operation@latest
+- @rs-tech-hub/nestjs-user@latest
+- @rs-tech-hub/nestjs-test-starter@latest
 
 # Requirements
 
-- Docker installed
+- Docker 4+
 - NodeJS v24+
 
 # Setup
@@ -34,14 +34,14 @@ The docker-compose file provides you with a production ready postgres database t
 ### Database Password
 
 - use dbpw.dev.secret-template.txt and rename to dbpw.dev.secret.txt
-  --> set your database password string directly into the first line (no identifier)
-  --> The password is loaded by docker-compose
+  - set your database password string directly into the first line (no identifier)
+- The password is loaded by docker-compose
 
 ### ENV
 
 - use .env-template.txt and renamve to .env
 - Update the database password in
-  --> DATABASE_URL=postgres://admin:password@localhost:5440/dev
+  - DATABASE_URL=postgres://admin:password@localhost:5440/dev
 - set the other environment variables
 
 ## Docker
@@ -50,9 +50,9 @@ The docker-compose file provides you with a production ready postgres database t
 
 yarn docker:build:dev
 
--> Creates docker container with postgres database
---> rs-tech-hub-nestjs-demo-backend
----> nestjs-starter-backend-db
+- Creates docker container with postgres database
+  - rs-tech-hub-nestjs-demo-backend
+    - nestjs-starter-backend-db
 
 ## NodeJS Project
 
@@ -60,18 +60,18 @@ yarn docker:build:dev
 
 yarn install
 
--> Installs project dependencies
+- Installs project dependencies
 
 ### Installation notes:
 
-!If some modules are still missing after installation, run these commands as well!
+- If some modules are still missing after installation, run these commands as well
 
-yarn add @rs-tech-hub/nestjs-account-starter@latest @rs-tech-hub/nestjs-auth-core@latest @rs-tech-hub/nestjs-auth-starter@latest @rs-tech-hub/nestjs-clock@latest @rs-tech-hub/nestjs-common-interceptors@latest @rs-tech-hub/nestjs-prisma@latest @rs-tech-hub/nestjs-profile@latest @rs-tech-hub/nestjs-service-operation@latest @rs-tech-hub/nestjs-user@latest @rs-tech-hub/nestjs-test-starter@latest
-yarn add graphql @apollo/server
-yarn add @nestjs/common @nestjs/core reflect-metadata rxjs
-yarn add @nestjs/platform-express
-yarn add passport @nestjs/passport passport-jwt @nestjs/jwt passport-local bcrypt axios
-yarn add @as-integrations/express5
+- yarn add @rs-tech-hub/nestjs-account-starter@latest @rs-tech-hub/nestjs-auth-core@latest @rs-tech-hub/nestjs-auth-starter@latest @rs-tech-hub/nestjs-clock@latest @rs-tech-hub/nestjs-common-interceptors@latest @rs-tech-hub/nestjs-prisma@latest @rs-tech-hub/nestjs-profile@latest @rs-tech-hub/nestjs-service-operation@latest @rs-tech-hub/nestjs-user@latest @rs-tech-hub/nestjs-test-starter@latest
+- yarn add graphql @apollo/server
+- yarn add @nestjs/common @nestjs/core reflect-metadata rxjs
+- yarn add @nestjs/platform-express
+- yarn add passport @nestjs/passport passport-jwt @nestjs/jwt passport-local bcrypt axios
+- yarn add @as-integrations/express5
 
 ## Prisma
 
@@ -79,22 +79,22 @@ yarn add @as-integrations/express5
 
 yarn prisma:gen
 
--> Creates prisma client in ./generated
+- Creates prisma client in ./generated
 
 ### Copy prisma client into node modules
 
-!Always run this command after adding new dependencies!
+- Always run this command after adding new dependencies
 
 yarn postinstall
 
--> Runs script/copy-prisma-client.js
---> copies generated folder -> node_modules/@rs-tech-hub/nestjs-prisma/src/lib/generated/client
+- Runs script/copy-prisma-client.js
+  - copies generated folder -> node_modules/@rs-tech-hub/nestjs-prisma/src/lib/generated/client
 
 ### Migrate prisma to database
 
 yarn prisma:migrate:dev
 
--> Initializes prisma schema in database
+- Initializes prisma schema in database
 
 # Start Server
 
