@@ -19,12 +19,16 @@ async function bootstrap() {
     logger: logLevels,
   });
   app.enableShutdownHooks();
-
+  const logger = new Logger("MAIN");
+  logger.log(
+    `Application starting in ${
+      isProduction ? "production" : "development"
+    } mode`
+  );
   app.enableCors({
     origin: [
       productionUrl,
-      "http://localhost:2998",
-      "http://localhost:2999",
+      // For your dev frontend server
       "http://localhost:3000",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
@@ -46,14 +50,13 @@ async function bootstrap() {
       res: express.Response,
       next: express.NextFunction
     ) => {
-      // debugGraphqlRequest(req, true);
-      Logger.debug(`Incoming ${req.method} request to ${req.url}`);
+      logger.debug(`Incoming ${req.method} request to ${req.url}`);
       next();
     }
   );
 
   const port = process.env.PORT ?? 4000;
   await app.listen(port, "0.0.0.0");
-  Logger.log(`Server is running on ${port}`);
+  logger.log(`RS Tech Hub NestJS Server is running on ${port}`);
 }
 bootstrap();

@@ -14,10 +14,12 @@ import {
 } from "@rs-tech-hub/nestjs-auth-starter";
 import { ProfileModule } from "@rs-tech-hub/nestjs-profile";
 import { ServiceFacilitatorModule } from "@rs-tech-hub/nestjs-service-operation";
+import { TestStarterModule } from "@rs-tech-hub/nestjs-test-starter";
 import { UserModule } from "@rs-tech-hub/nestjs-user";
 
 @Module({
   imports: [
+    TestStarterModule,
     ServiceFacilitatorModule,
     AuthStarterSchedulerModule,
     PassportGlobalModule,

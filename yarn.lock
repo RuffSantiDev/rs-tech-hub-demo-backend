@@ -581,17 +581,19 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
-"@rs-tech-hub/nestjs-account-starter@1.0.0", "@rs-tech-hub/nestjs-account-starter@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-account-starter/-/nestjs-account-starter-1.0.0.tgz#c8383d3338b393fbbd7e6fd811b90182ecfba443"
-  integrity sha512-2VKW2O1rjxhspnqLhOQBvgN+IiJHGRxZVN9cdbb6sCAJjszVLdc2+NLdCJ3J0s7/ZkbSSRCvsITEwGMrBYo5qA==
+"@rs-tech-hub/nestjs-account-starter@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-account-starter/-/nestjs-account-starter-1.0.1.tgz#f98ca80c386ce8acb9d9a9cd7121c741ca1b343e"
+  integrity sha512-whClAvVUGn3n7WjHK1rcOAg/g1WvGc7anOdl1jkunxRqlXP6PzjKvaFtZJrfGHH/4u61pTRh15WPiQ8W0JlYog==
   dependencies:
     "@nestjs/common" "^11.1.6"
     "@nestjs/core" "^11.1.6"
     "@nestjs/graphql" "^13.1.0"
+    "@rs-tech-hub/nestjs-auth-core" "1.0.0"
     "@rs-tech-hub/nestjs-license-validator" "^1.0.0"
     "@rs-tech-hub/nestjs-prisma" "^1.0.0"
     "@rs-tech-hub/nestjs-service-operation" "^1.0.0"
+    class-transformer "^0.5.1"
     class-validator "^0.14.1"
     tslib "^2.3.0"
 
@@ -628,33 +630,33 @@
     reflect-metadata "^0.1.13"
     tslib "^2.3.0"
 
-"@rs-tech-hub/nestjs-auth-starter@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-auth-starter/-/nestjs-auth-starter-1.0.1.tgz#57ccacdd53d94649d51bb41c5fb51ebe70763b85"
-  integrity sha512-kSIFWuwiaW3+NWbEuaQWIY5dbsUNqSEt78ENisbPr4W8q/Q6NFNlOXbvqo75ur92hgNRvBdzyWrrVGO09ydqvg==
+"@rs-tech-hub/nestjs-auth-starter@^1.0.2", "@rs-tech-hub/nestjs-auth-starter@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-auth-starter/-/nestjs-auth-starter-1.0.3.tgz#ad3d966df1222c28a49968d31ad2c34eabaa22ab"
+  integrity sha512-43/2kc4GNwNwhrZQJH5JYJPR+3BXIdXn5udsif2smxX3VSzGY0gV+s1nE/dmB2s0thuhwrZUA8i4t7iNfudj5g==
   dependencies:
     "@nestjs/common" "^11.1.6"
     "@nestjs/core" "^11.1.6"
     "@nestjs/graphql" "^13.1.0"
     "@nestjs/jwt" "^11.0.0"
     "@nestjs/schedule" "^6.0.0"
-    "@rs-tech-hub/nestjs-account-starter" "^1.0.0"
+    "@rs-tech-hub/nestjs-account-starter" "^1.0.1"
     "@rs-tech-hub/nestjs-activation-token" "^1.0.0"
     "@rs-tech-hub/nestjs-auth-core" "^1.0.0"
     "@rs-tech-hub/nestjs-clock" "^1.0.0"
     "@rs-tech-hub/nestjs-common-interceptors" "^1.0.1"
     "@rs-tech-hub/nestjs-license-validator" "^1.0.0"
     "@rs-tech-hub/nestjs-prisma" "^1.0.0"
-    "@rs-tech-hub/nestjs-profile" "^1.0.0"
-    "@rs-tech-hub/nestjs-refresh-token" "^1.0.0"
+    "@rs-tech-hub/nestjs-profile" "^1.0.1"
+    "@rs-tech-hub/nestjs-refresh-token" "^1.0.1"
     "@rs-tech-hub/nestjs-service-operation" "^1.0.0"
-    "@rs-tech-hub/nestjs-user" "^1.0.0"
+    "@rs-tech-hub/nestjs-user" "^1.0.1"
     bcrypt "5.1.1"
     class-validator "^0.14.1"
     reflect-metadata "^0.1.13"
     tslib "^2.3.0"
 
-"@rs-tech-hub/nestjs-clock@1.0.0", "@rs-tech-hub/nestjs-clock@^1.0.0":
+"@rs-tech-hub/nestjs-clock@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-clock/-/nestjs-clock-1.0.0.tgz#66e89d244e8036975d3d8ad21a30d3d4025a08bd"
   integrity sha512-O5+47oaiK18cWelNEs84L7chwDi8AqFabwWz1ax9Ysjc7PBLUug2DBK9FUxmUDPTAdF1mLla6pJlV6mfHxJ5Vg==
@@ -663,7 +665,7 @@
     "@nestjs/config" "^4.0.2"
     tslib "^2.3.0"
 
-"@rs-tech-hub/nestjs-common-interceptors@1.0.1", "@rs-tech-hub/nestjs-common-interceptors@^1.0.1":
+"@rs-tech-hub/nestjs-common-interceptors@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-common-interceptors/-/nestjs-common-interceptors-1.0.1.tgz#d23a0a389e4190a0398ab9e6bb45841f2e89170f"
   integrity sha512-HRT4OhdmRaOrjQ6iWpRaCTOYuVreQT3PPrc5o/ZBg4GdtHKcqWqINPSZ9GI5IgAffkFrB7vxMjDsWLFUvK6+OA==
@@ -693,7 +695,7 @@
     rxjs "^7.8.0"
     tslib "^2.3.0"
 
-"@rs-tech-hub/nestjs-prisma@1.0.0", "@rs-tech-hub/nestjs-prisma@^1.0.0":
+"@rs-tech-hub/nestjs-prisma@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-prisma/-/nestjs-prisma-1.0.0.tgz#1847019b5a1e724433500d9584ce614e518b2408"
   integrity sha512-zNretFArAgZyQniEH+8lO1SBhgCgC/i45XKmjpF9lLLZXbKp/m2vytcbUhZ63Ge++MIhHBJ8RimBf1EN/rRstA==
@@ -707,19 +709,19 @@
     pg "8.16.3"
     tslib "^2.3.0"
 
-"@rs-tech-hub/nestjs-profile@1.0.0", "@rs-tech-hub/nestjs-profile@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-profile/-/nestjs-profile-1.0.0.tgz#9943eb1c8e40418636a2bfa4bea45e19c63c937a"
-  integrity sha512-OpiZ93bRMwx018s0JJaYab/q5vsBuDYxJoHZ1qbcoz1jfI4mPyQJvoYO/RnYGYMGP6a4QM+AMIQgRQ90hbru/Q==
+"@rs-tech-hub/nestjs-profile@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-profile/-/nestjs-profile-1.0.1.tgz#cdd173cd5da3e3ca086cd2326faa5a0007400c9e"
+  integrity sha512-3yOw2DUl0ACak5knaFASvyGooshxwUcjQ74feKaQolofu2pkdeiOL62UaQ5iZH8dnBcGX4tFrcYB3NvoRrFwAQ==
   dependencies:
     "@nestjs/common" "^11.0.0"
     "@nestjs/core" "^11.1.6"
     tslib "^2.3.0"
 
-"@rs-tech-hub/nestjs-refresh-token@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-refresh-token/-/nestjs-refresh-token-1.0.0.tgz#29a012ceb5e3904ecbeeeef75acb923cee5c78f4"
-  integrity sha512-F5RPpuuSimRaAF2Df/9vnGQPZXEw7Lvqt7yDQfMx85Np7L4iWwXfdgx1gr+3xtWKHrpfyY1OZu5EgrxnavNGuA==
+"@rs-tech-hub/nestjs-refresh-token@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-refresh-token/-/nestjs-refresh-token-1.0.1.tgz#d9f333cf9aa6b2c154c290ee2ab7b2ad76c10dce"
+  integrity sha512-Ftm5pw67GhpOZ5sIkNFPyyww9xjgYbfekqRfDozinDuqngqMNdKotR8TUlM22FDdtQt+zZYyLs0AndQOVOpxyg==
   dependencies:
     "@nestjs/common" "^11.0.0"
     "@nestjs/core" "^11.1.6"
@@ -728,11 +730,11 @@
     "@rs-tech-hub/nestjs-license-validator" "^1.0.0"
     "@rs-tech-hub/nestjs-prisma" "^1.0.0"
     "@rs-tech-hub/nestjs-service-operation" "^1.0.0"
-    "@rs-tech-hub/nestjs-user" "^1.0.0"
+    "@rs-tech-hub/nestjs-user" "^1.0.1"
     tslib "^2.3.0"
     uuid "^9.0.1"
 
-"@rs-tech-hub/nestjs-service-operation@1.0.0", "@rs-tech-hub/nestjs-service-operation@^1.0.0", "@rs-tech-hub/nestjs-service-operation@workspace:*":
+"@rs-tech-hub/nestjs-service-operation@^1.0.0", "@rs-tech-hub/nestjs-service-operation@workspace:*":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-service-operation/-/nestjs-service-operation-1.0.0.tgz#792e8d4d4631aa01b885ab9b513500df726fd0f1"
   integrity sha512-91T5ON6FQ7hFhL9xSyC6xlTd5AXYRlmxlZrJo6YPvF89ZcaX3XZj+Y/5BYu56AmYTx+/ZkV2RHD3JeFGaoMkbA==
@@ -740,10 +742,28 @@
     "@nestjs/common" "^11.1.6"
     tslib "^2.3.0"
 
-"@rs-tech-hub/nestjs-user@1.0.0", "@rs-tech-hub/nestjs-user@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-user/-/nestjs-user-1.0.0.tgz#157ad02f619e6dadca08833008f633c5f11fa15d"
-  integrity sha512-1kQnrqAM+qP7KXhaZyieCz/+4RbUadwThdmYJ4Rzf8iEEkpvX7TJ63dQt8zaIl2184HgSg1m3h5kr3B3EPArUQ==
+"@rs-tech-hub/nestjs-test-starter@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-test-starter/-/nestjs-test-starter-1.0.2.tgz#7193d6a34caee116326655e4e2ff2d9fb832f792"
+  integrity sha512-XG98RUr5amRvWQiHxtZgXs47JYu3VV8E0k9F4rXnyBHARwe1wRcJB+yLW/E8I8gcxnUmEaQxeiTpCSyhM1Z3aQ==
+  dependencies:
+    "@nestjs/common" "^11.1.6"
+    "@nestjs/config" "^4.0.2"
+    "@nestjs/core" "^11.1.6"
+    "@nestjs/graphql" "^13.1.0"
+    "@rs-tech-hub/nestjs-account-starter" "^1.0.1"
+    "@rs-tech-hub/nestjs-auth-core" "^1.0.0"
+    "@rs-tech-hub/nestjs-auth-starter" "^1.0.2"
+    "@rs-tech-hub/nestjs-license-validator" "^1.0.0"
+    "@rs-tech-hub/nestjs-prisma" "^1.0.0"
+    "@rs-tech-hub/nestjs-service-operation" "^1.0.0"
+    "@rs-tech-hub/nestjs-user" "^1.0.1"
+    tslib "^2.3.0"
+
+"@rs-tech-hub/nestjs-user@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@rs-tech-hub/nestjs-user/-/nestjs-user-1.0.1.tgz#572b60f5093077021f0f909e93ea4ad1f4bdc406"
+  integrity sha512-KLcVPtFlk5kZlZt5xphCB3qkYrKwmYWWYF+IWo7adK2Scj6B3eZfkufejS2rEWwYmfyvKylgWeHPn1vI6wjmUA==
   dependencies:
     "@nestjs/common" "^11.1.6"
     "@nestjs/core" "^11.1.6"
