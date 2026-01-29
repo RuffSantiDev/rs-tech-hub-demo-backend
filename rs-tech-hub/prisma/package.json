@@ -1,0 +1,38 @@
+{
+  "name": "@rs-tech-hub/nestjs-prisma",
+  "description": "A prisma service and module for NestJS applications, providing seamless integration with Prisma ORM for database management.",
+  "version": "1.0.1",
+  "license": "MIT",
+  "author": "RS-Tech-Hub",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
+  "files": [
+    "prisma",
+    "src",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.2",
+    "@prisma/adapter-pg": "^7.1.0",
+    "@prisma/client": "^7.0.0",
+    "@rs-tech-hub/nestjs-service-operation": "^1.0.1",
+    "express": "^4.21.2",
+    "pg": "8.16.3",
+    "tslib": "^2.3.0"
+  },
+  "type": "commonjs"
+}

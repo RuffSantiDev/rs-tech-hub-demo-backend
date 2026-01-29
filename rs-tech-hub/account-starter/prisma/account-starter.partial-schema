@@ -1,0 +1,31 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "../generated/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+enum AccountType {
+  FREE
+  TEST
+}
+
+model Account {
+  id                 String      @unique @default(cuid())
+  name               String
+  primaryEmail       String      @unique()
+  Type               AccountType @default(FREE)
+  signupIpAdress     String?
+  isDemoContentReady Boolean     @default(false)
+  Users              User[]
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+}
+
+// Stub models for dependencies
+model User {
+  id                     String               @unique @default(cuid())
+  Account                Account              @relation(fields: [accountId], references: [id], onDelete: Cascade)
+}

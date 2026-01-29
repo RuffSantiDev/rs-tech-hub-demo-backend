@@ -1,0 +1,38 @@
+{
+  "name": "@rs-tech-hub/nestjs-common-interceptors",
+  "description": "An module providing common interceptors for NestJS applications.",
+  "version": "1.0.1",
+  "license": "MIT",
+  "author": "RS-Tech-Hub",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.6",
+    "@nestjs/graphql": "^13.1.0",
+    "class-transformer": "^0.5.1",
+    "rxjs": "^7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^11.1.6",
+    "rxjs": "^7.8.0"
+  },
+  "type": "commonjs"
+}

@@ -1,0 +1,61 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.mockAccounts = void 0;
+const nestjs_prisma_1 = require("@rs-tech-hub/nestjs-prisma");
+exports.mockAccounts = [
+    {
+        stripeCustomerId: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        Type: nestjs_prisma_1.AccountType.FREE,
+        primaryEmail: 'testUser19@testing.com',
+        id: 'cmaxm5tiy000gelj4hwwf34op',
+        signupIpAdress: null,
+        isDemoContentReady: false,
+        name: 'testUser19@testing.com',
+    },
+    {
+        stripeCustomerId: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        Type: nestjs_prisma_1.AccountType.FREE,
+        primaryEmail: 'testUser11@testing.com',
+        id: 'cmaxm5tm2000oelj4pcy2yosu',
+        signupIpAdress: null,
+        isDemoContentReady: false,
+        name: 'testUser11@testing.com',
+    },
+    {
+        Type: nestjs_prisma_1.AccountType.FREE,
+        primaryEmail: 'testUser46@testing.com',
+        id: 'cmaqs10rf0000el8so126qw3d',
+        signupIpAdress: null,
+        isDemoContentReady: false,
+        name: 'testUser46@testing.com',
+        stripeCustomerId: 'cus_SK1VPSKBGbhvCc',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+    },
+    {
+        Type: nestjs_prisma_1.AccountType.FREE,
+        primaryEmail: 'testUser85@testing.com',
+        id: 'cmaqs10rf0000el8so126qw3d',
+        signupIpAdress: null,
+        isDemoContentReady: false,
+        name: 'testUser85@testing.com',
+        stripeCustomerId: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+    },
+    {
+        Type: nestjs_prisma_1.AccountType.FREE,
+        primaryEmail: 'testUser39@testing.com',
+        id: 'cmaqs10rf0000el8so126qw3d',
+        signupIpAdress: null,
+        isDemoContentReady: false,
+        name: 'testUser39@testing.com',
+        stripeCustomerId: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+    },
+];

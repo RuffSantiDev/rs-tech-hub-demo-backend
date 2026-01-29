@@ -1,0 +1,55 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.mockProfiles = void 0;
+exports.mockProfiles = [
+    {
+        id: 'cmaxm5tjb000jelj4g3n8wkm3',
+        avatarUrl: null,
+        firstName: 'Test  19',
+        lastName: 'User',
+        country: null,
+        userId: 'cmaxm5tj3000helj4ck4g8pf8',
+        Salutation: 'NONE',
+        dateOfBirth: '1972-07-12 00:00:00',
+    },
+    {
+        id: 'cmaxm5tmc000relj432vor19b',
+        avatarUrl: null,
+        firstName: 'Test  11',
+        lastName: 'User',
+        country: null,
+        userId: 'cmaxm5tm6000pelj4sesm2ywn',
+        Salutation: 'NONE',
+        dateOfBirth: '1972-07-12 00:00:00',
+    },
+    {
+        id: 'cmaxm5tpo000zelj41jk3iv3d',
+        avatarUrl: null,
+        firstName: 'Test  37',
+        lastName: 'User',
+        country: null,
+        userId: 'cmaxm5tph000xelj4unnrhfyy',
+        Salutation: 'NONE',
+        dateOfBirth: '1972-07-12 00:00:00',
+    },
+    {
+        id: 'cmaxm5tss0017elj4ge498fgj',
+        avatarUrl: null,
+        firstName: 'Test  60',
+        lastName: 'User',
+        country: null,
+        userId: 'cmaxm5tsm0015elj4c21cyyu9',
+        Salutation: 'NONE',
+        dateOfBirth: '1972-07-12 00:00:00',
+    },
+    {
+        id: 'cmaxm5tvl001felj45ro2ocrx',
+        avatarUrl: null,
+        firstName: 'Test  1',
+        lastName: 'User',
+        country: null,
+        userId: 'cmaxm5tvf001delj4ta4uxrcp',
+        Salutation: 'NONE',
+        dateOfBirth: '1972-07-12 00:00:00',
+    },
+];

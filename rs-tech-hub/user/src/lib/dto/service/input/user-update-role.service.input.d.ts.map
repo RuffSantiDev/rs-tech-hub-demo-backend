@@ -1,0 +1,1 @@
+{"version":3,"file":"user-update-role.service.input.d.ts","sourceRoot":"","sources":["../../../../../../../../packages/user/src/lib/dto/service/input/user-update-role.service.input.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,QAAQ,EAAE,MAAM,4BAA4B,CAAC;AAGtD,qBACa,0BAA0B;IAGrC,EAAE,EAAE,MAAM,CAAC;IAIX,IAAI,EAAE,QAAQ,CAAC;CAChB"}

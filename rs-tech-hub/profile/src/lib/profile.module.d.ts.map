@@ -1,0 +1,1 @@
+{"version":3,"file":"profile.module.d.ts","sourceRoot":"","sources":["../../../../../packages/profile/src/lib/profile.module.ts"],"names":[],"mappings":"AAAA,OAAO,EAAU,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAEtD,OAAO,EAIL,uBAAuB,EACxB,MAAM,uCAAuC,CAAC;AAM/C,qBAiBa,aAAc,YAAW,YAAY;IACpC,OAAO,CAAC,uBAAuB;gBAAvB,uBAAuB,EAAE,uBAAuB;IAEpE,YAAY;CAGb"}

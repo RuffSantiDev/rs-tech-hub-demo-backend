@@ -1,0 +1,89 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "../generated/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+enum UserStatus {
+  PENDING
+  ACTIVE
+  INACTIVE
+  DISABLED
+  SOFT_DELETED
+  SCHEDULED_DELETION
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum UserActivityType {
+  LOGIN
+  LOGOUT
+  REGISTER
+  ACTIVATE
+  DEACTIVATE
+  DISABLE
+  SOFT_DELETE
+  SCHEDULE_DELETION
+  REQUEST_PASSWORD_RESET
+  RESET_PASSWORD
+  REFRESH_TOKEN_REVOKED
+  REFRESH_TOKEN_EXPIRED
+  REFRESH_TOKEN_INVALID
+  ALL_TOKENS_REVOKED
+  UPDATE_PROFILE
+  UPDATE_PASSWORD
+  UPDATE_EMAIL
+  UPDATE_ROLE
+  REQUEST_SUPPORT
+  DELETE
+}
+
+model User {
+  id                     String               @unique @default(cuid())
+  Status                 UserStatus           @default(PENDING)
+  Role                   UserRole             @default(USER)
+  email                  String               @unique
+  issuerId               String?              @unique
+  salt                   String
+  hash                   String
+  isVerified             Boolean              @default(false)
+  activatedAt            DateTime?
+  deactivatedAt          DateTime?
+  disabledAt             DateTime?
+  softDeletedAt          DateTime?
+  isScheduledForDeletion Boolean              @default(false)
+  scheduledDeletionAt    DateTime?
+  Account                Account              @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  accountId              String               @unique
+  Activity               UserActivity[]
+  createdAt              DateTime             @default(now())
+  updatedAt              DateTime             @updatedAt
+  Profile                Profile?
+  RefreshTokens          RefreshToken[]
+  ActivationTokens       ActivationToken[]
+  passwordResetTokens    PasswordResetToken[]
+}
+
+model UserActivity {
+  id        String           @unique @default(cuid())
+  Type      UserActivityType
+  User      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  createdAt DateTime         @default(now())
+}
+
+// Stub models for dependencies
+model Account {
+  id                 String      @unique @default(cuid())
+  Users              User[]
+}
+
+model Profile {
+  id          String              @unique @default(cuid())
+}

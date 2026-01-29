@@ -5,12 +5,11 @@ const sourceDir = path.join(__dirname, "..", "generated/.prisma");
 const targetDir = path.join(
   __dirname,
   "..",
-  "node_modules",
-  "@rs-tech-hub",
-  "nestjs-prisma",
+  "rs-tech-hub",
+  "prisma",
   "src",
   "lib",
-  "generated"
+  "generated",
 );
 
 function copyRecursive(src, dest) {

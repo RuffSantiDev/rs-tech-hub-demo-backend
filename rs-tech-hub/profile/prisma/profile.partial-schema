@@ -1,0 +1,35 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "../generated/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+enum ProfileSalutations {
+  MR
+  MRS
+  MS
+  DR
+  NONE
+}
+
+model Profile {
+  id          String              @unique @default(cuid())
+  avatarUrl   String?
+  Salutation  ProfileSalutations? @default(NONE)
+  firstName   String?
+  lastName    String?
+  dateOfBirth DateTime?
+  country     String?
+  User        User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String              @unique
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+}
+
+// Stub models for dependencies
+model User {
+  id                     String               @unique @default(cuid())
+}

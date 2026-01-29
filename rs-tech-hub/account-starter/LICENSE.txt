@@ -1,0 +1,11 @@
+Commercial License Required
+
+Copyright (c) 2025 Raphael Schwirtlich - RS-Tech-Hub
+
+This software is proprietary and confidential. Unauthorized copying, distribution, 
+modification, or use of this software is strictly prohibited except as expressly 
+permitted under a separate written agreement with Raphael Schwirtlich.
+
+By using the software you are agreeing to the RS-TECH-HUB SOFTWARE LICENSE AGREEMENT: https://rs-tech-hub.com/sla
+
+For licensing inquiries contact: insights@rs-tech-hub.com

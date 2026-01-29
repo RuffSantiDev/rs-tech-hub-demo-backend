@@ -1,3 +1,5 @@
+import "tsconfig-paths/register";
+
 import { Logger } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 
@@ -23,7 +25,7 @@ async function bootstrap() {
   logger.log(
     `Application starting in ${
       isProduction ? "production" : "development"
-    } mode`
+    } mode`,
   );
   app.enableCors({
     origin: [
@@ -41,18 +43,18 @@ async function bootstrap() {
       verify: (req: any, res, buf) => {
         req.rawBody = buf;
       },
-    })
+    }),
   );
 
   app.use(
     (
       req: express.Request,
       res: express.Response,
-      next: express.NextFunction
+      next: express.NextFunction,
     ) => {
       logger.debug(`Incoming ${req.method} request to ${req.url}`);
       next();
-    }
+    },
   );
 
   const port = process.env.PORT ?? 4000;

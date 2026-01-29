@@ -1,0 +1,29 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "../generated/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+model RefreshToken {
+  id              String    @id @unique @default(cuid())
+  token           String    @unique
+  userId          String
+  User            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  isRevoked       Boolean   @default(false)
+  revokedAt       DateTime?
+  replacedByToken String?
+  expiresAt       DateTime
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([userId])
+}
+
+// Stub models for dependencies
+model User {
+  id                     String               @unique @default(cuid())
+  RefreshTokens          RefreshToken[]
+}

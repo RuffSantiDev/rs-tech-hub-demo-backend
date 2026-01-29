@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../../packages/license-validator/src/index.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,uBAAuB,EAAE,MAAM,iCAAiC,CAAC;AAG1E,OAAO,EAAE,sBAAsB,EAAE,MAAM,gCAAgC,CAAC;AAGxE,YAAY,EACV,uBAAuB,EACvB,sBAAsB,GACvB,MAAM,kBAAkB,CAAC;AAE1B,OAAO,EAAE,8BAA8B,EAAE,MAAM,mDAAmD,CAAC;AAEnG,OAAO,EAAE,uBAAuB,EAAE,MAAM,8CAA8C,CAAC"}

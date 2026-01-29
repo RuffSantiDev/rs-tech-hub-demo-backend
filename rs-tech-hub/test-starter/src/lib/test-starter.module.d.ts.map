@@ -1,0 +1,1 @@
+{"version":3,"file":"test-starter.module.d.ts","sourceRoot":"","sources":["../../../../../packages/test-starter/src/lib/test-starter.module.ts"],"names":[],"mappings":"AAAA,OAAO,EAAU,YAAY,EAAE,MAAM,gBAAgB,CAAC;AAetD,OAAO,EAIL,uBAAuB,EACxB,MAAM,uCAAuC,CAAC;AAkB/C,qBAkCa,iBAAkB,YAAW,YAAY;IACxC,OAAO,CAAC,uBAAuB;gBAAvB,uBAAuB,EAAE,uBAAuB;IAEpE,YAAY;CAGb"}

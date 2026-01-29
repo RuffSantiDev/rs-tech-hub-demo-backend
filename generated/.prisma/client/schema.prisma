@@ -1,10 +1,11 @@
+// Copy the generated client folder into the @rs-tech-hub/nestjs-prisma module
+// -> src/lib/generated/client
+
 generator client {
+  // Use in built projects
   provider = "prisma-client-js"
   output   = "../generated/.prisma/client"
 }
-
-// Copy the generated client folder into the @rs-tech-hub/nestjs-prisma module
-// -> src/lib/generated/client
 
 datasource db {
   provider = "postgresql"
@@ -14,28 +15,51 @@ datasource db {
 // Users & Accounts & AccountSubscription
 ////////////////////////////////////////
 model RefreshToken {
-  id              String   @id @unique @default(cuid())
-  token           String   @unique
+  id              String    @id @unique @default(cuid())
+  token           String    @unique
   userId          String
-  User            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  revoked         Boolean  @default(false)
+  User            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  isRevoked       Boolean   @default(false)
+  revokedAt       DateTime?
   replacedByToken String?
   expiresAt       DateTime
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
 
   @@index([userId])
 }
 
 model ActivationToken {
-  id            String    @id @unique @default(cuid())
-  userId        String
-  tokenHash     String    @unique
-  createdAt     DateTime  @default(now())
-  expiresAt     DateTime
-  usedAt        DateTime?
-  invalidatedAt DateTime?
-  User          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id        String    @id @unique @default(cuid())
+  userId    String
+  tokenHash String    @unique
+  createdAt DateTime  @default(now())
+  expiresAt DateTime
+  usedAt    DateTime?
+  isRevoked Boolean   @default(false)
+  revokedAt DateTime?
+  User      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model PasswordResetToken {
+  id        String    @id @default(uuid())
+  tokenHash String    @unique
+  User      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  // Security tracking (optional but recommended)
+  ipAddress String?
+  userAgent String?
+
+  // Soft delete for audit trail
+  isRevoked Boolean   @default(false)
+  revokedAt DateTime?
 
   @@index([userId])
 }
@@ -45,7 +69,8 @@ enum UserStatus {
   ACTIVE
   INACTIVE
   DISABLED
-  DELETED
+  SOFT_DELETED
+  SCHEDULED_DELETION
 }
 
 enum UserRole {
@@ -54,24 +79,29 @@ enum UserRole {
 }
 
 model User {
-  id               String            @unique @default(cuid())
-  Status           UserStatus        @default(PENDING)
-  Role             UserRole          @default(USER)
-  email            String            @unique
-  issuerId         String?           @unique
-  salt             String
-  hash             String
-  isVerified       Boolean           @default(false)
-  activatedAt      DateTime?
-  deactivatedAt    DateTime?
-  Account          Account           @relation(fields: [accountId], references: [id], onDelete: Cascade)
-  accountId        String            @unique
-  Activity         UserActivity[]
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
-  Profile          Profile?
-  RefreshTokens    RefreshToken[]
-  ActivationTokens ActivationToken[]
+  id                     String               @unique @default(cuid())
+  Status                 UserStatus           @default(PENDING)
+  Role                   UserRole             @default(USER)
+  email                  String               @unique
+  issuerId               String?              @unique
+  salt                   String
+  hash                   String
+  isVerified             Boolean              @default(false)
+  activatedAt            DateTime?
+  deactivatedAt          DateTime?
+  disabledAt             DateTime?
+  softDeletedAt          DateTime?
+  isScheduledForDeletion Boolean              @default(false)
+  scheduledDeletionAt    DateTime?
+  Account                Account              @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  accountId              String               @unique
+  Activity               UserActivity[]
+  createdAt              DateTime             @default(now())
+  updatedAt              DateTime             @updatedAt
+  Profile                Profile?
+  RefreshTokens          RefreshToken[]
+  ActivationTokens       ActivationToken[]
+  passwordResetTokens    PasswordResetToken[]
 }
 
 enum ProfileSalutations {
@@ -103,6 +133,9 @@ enum UserActivityType {
   ACTIVATE
   DEACTIVATE
   DISABLE
+  SOFT_DELETE
+  SCHEDULE_DELETION
+  REQUEST_PASSWORD_RESET
   RESET_PASSWORD
   REFRESH_TOKEN_REVOKED
   REFRESH_TOKEN_EXPIRED
@@ -111,6 +144,7 @@ enum UserActivityType {
   UPDATE_PROFILE
   UPDATE_PASSWORD
   UPDATE_EMAIL
+  UPDATE_ROLE
   REQUEST_SUPPORT
   DELETE
 }

@@ -11,7 +11,54 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@app/*": ["src/*"]
+      "@app/*": [
+        "src/*"
+      ],
+      "@rs-tech-hub/nestjs-account-starter": [
+        "rs-tech-hub/account-starter/src"
+      ],
+      "@rs-tech-hub/nestjs-activation-token": [
+        "rs-tech-hub/activation-token/src"
+      ],
+      "@rs-tech-hub/nestjs-auth-core": [
+        "rs-tech-hub/auth-core/src"
+      ],
+      "@rs-tech-hub/nestjs-auth-starter": [
+        "rs-tech-hub/auth-starter/src"
+      ],
+      "@rs-tech-hub/nestjs-clock": [
+        "rs-tech-hub/clock/src"
+      ],
+      "@rs-tech-hub/nestjs-common-interceptors": [
+        "rs-tech-hub/common-interceptors/src"
+      ],
+      "@rs-tech-hub/nestjs-license-validator": [
+        "rs-tech-hub/license-validator/src"
+      ],
+      "@rs-tech-hub/nestjs-password-reset-token": [
+        "rs-tech-hub/password-reset-token/src"
+      ],
+      "@rs-tech-hub/nestjs-prisma": [
+        "rs-tech-hub/prisma/src"
+      ],
+      "@rs-tech-hub/nestjs-profile": [
+        "rs-tech-hub/profile/src"
+      ],
+      "@rs-tech-hub/nestjs-refresh-token": [
+        "rs-tech-hub/refresh-token/src"
+      ],
+      "@rs-tech-hub/nestjs-security-core": [
+        "rs-tech-hub/security-core/src"
+      ],
+      "@rs-tech-hub/nestjs-service-operation": [
+        "rs-tech-hub/service-operation/src"
+      ],
+      "@rs-tech-hub/nestjs-test-starter": [
+        "rs-tech-hub/test-starter/src"
+      ],
+      "@rs-tech-hub/nestjs-user": [
+        "rs-tech-hub/user/src"
+      ]
     },
     "incremental": true,
     "skipLibCheck": true,

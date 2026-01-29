@@ -1,0 +1,33 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserUpdatePasswordServiceInput = void 0;
+const tslib_1 = require("tslib");
+const graphql_1 = require("@nestjs/graphql");
+const class_validator_1 = require("class-validator");
+let UserUpdatePasswordServiceInput = class UserUpdatePasswordServiceInput {
+    id;
+    hash;
+    salt;
+};
+exports.UserUpdatePasswordServiceInput = UserUpdatePasswordServiceInput;
+tslib_1.__decorate([
+    (0, graphql_1.Field)(() => graphql_1.ID),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], UserUpdatePasswordServiceInput.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, graphql_1.Field)(),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], UserUpdatePasswordServiceInput.prototype, "hash", void 0);
+tslib_1.__decorate([
+    (0, graphql_1.Field)(),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    tslib_1.__metadata("design:type", String)
+], UserUpdatePasswordServiceInput.prototype, "salt", void 0);
+exports.UserUpdatePasswordServiceInput = UserUpdatePasswordServiceInput = tslib_1.__decorate([
+    (0, graphql_1.InputType)()
+], UserUpdatePasswordServiceInput);

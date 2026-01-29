@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ACCOUNT_ERROR_DELETION_FAILED = exports.ACCOUNT_ERROR_ID_UNDEFINED = exports.ACCOUNT_ERROR_UPDATE_FAILED = exports.ACCOUNT_ERROR_NOT_FOUND = exports.ACCOUNT_ERROR_CREATION_FAILED = exports.ACCOUNT_ERROR_EMAIL_ALREADY_EXISTS = exports.ACCOUNT_ERROR_VALIDATION_FAILED = void 0;
+exports.ACCOUNT_ERROR_VALIDATION_FAILED = 'account-error:validation-failed';
+exports.ACCOUNT_ERROR_EMAIL_ALREADY_EXISTS = 'account-error:email-already-exists';
+exports.ACCOUNT_ERROR_CREATION_FAILED = 'account-error:creation-failed';
+exports.ACCOUNT_ERROR_NOT_FOUND = 'account-error:not-found';
+exports.ACCOUNT_ERROR_UPDATE_FAILED = 'account-error:update-failed';
+exports.ACCOUNT_ERROR_ID_UNDEFINED = 'account-error:id-undefined';
+exports.ACCOUNT_ERROR_DELETION_FAILED = 'account-error:deletion-failed';

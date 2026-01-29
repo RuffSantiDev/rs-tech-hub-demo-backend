@@ -1,0 +1,1 @@
+{"version":3,"file":"license-get-licenses.resolver.output.d.ts","sourceRoot":"","sources":["../../../../../../packages/license-validator/src/lib/dto/license-get-licenses.resolver.output.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,YAAY,EAAE,MAAM,iBAAiB,CAAC;AAE/C,qBACa,gCAAgC;IAEnC,OAAO,EAAE,OAAO,CAAC;IAEjB,QAAQ,EAAE,YAAY,EAAE,CAAC;CAClC"}
